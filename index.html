@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./source/diced5.ico" type="image/x-icon" />
+  </head>
+
+  <body class="root">
+    <h1 class="choose-head">Нажмите на нужный дайс</h1>
+    <div class="choose-dice"></div>
+    <!-- <audio id="D30Sound" src="./source/D30.mp3"></audio>
+    <audio id="D6Sound" src="./source/D6.mp3"></audio> -->
+    <img src="./source/cub.svg" class="preload-img" alt="" />
+    <img src="./source/wall.svg" class="preload-img" alt="" />
+    <img src="./source/red-wall.svg" class="preload-img" alt="" />
+    <div class="dices"></div>
+    <span class="game-alert"></span>
+    <div id="heal-con" class="heal-invis heal-container">
+      <div class="form">
+        <input type="number" name="heal-input" id="heal-input" />
+        <button type="button" class="butn heal-btn">
+          <span>Восстановить</span>
+        </button>
+      </div>
+      <span class="heal-text">Введите ваше текущее здоровье</span>
+    </div>
+
+    <template id="template">
+      <div class="dice-container">
+        <img src="" alt="" class="dice-img" />
+        <span class="dice-result"></span>
+      </div>
+    </template>
+    <template id="mechanics">
+      <div id="D5" class="choise-container">
+        <div class="mechanics attack">
+          <img
+            class="mechanics-img attack-img"
+            src="./source/attack.svg"
+            alt="Иконка атаки"
+          />
+          <span class="attack-text">Атака</span>
+        </div>
+        <div class="mechanic defense">
+          <img
+            class="mechanics-img defense"
+            src="./source/shield.svg"
+            alt="Иконка атаки"
+          />
+          <span class="defense-text">Защита</span>
+        </div>
+      </div>
+    </template>
+    <template id="dice-choice">
+      <div class="choice-container">
+        <img src="" alt="Внешний вид кубика" class="choice-img" />
+        <p class="choice-name"></p>
+      </div>
+    </template>
+    <template id="paint">
+      <div id="Papper" class="paint-container">
+        <!-- <div class="sparkles"></div> -->
+        <div class="timer">
+          <span class="second">00</span>:<span class="milsecond">00</span>
+        </div>
+        <img src="./source/wall.svg" alt="Рамка" class="paint-wall" />
+        <!-- <div class="reset-wall"></div> -->
+        <!-- <div class="style-container">
+          <button class="reset">Очистить</button>
+        </div> -->
+      </div>
+    </template>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

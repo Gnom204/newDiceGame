@@ -1,0 +1,376 @@
+@import url(./style/dice.css);
+@import url(./style/choice.css);
+@font-face {
+  font-family: "Zing";
+  src: url(./source/ofont.ru_Zing\ Rust.ttf);
+}
+@font-face {
+  font-family: "bestFont";
+
+  src: url(./source/ofont.ru_Hlobus.ttf);
+}
+body {
+  background-image: url(./source/backgroundmob.webp);
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+}
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+p {
+  font-size: 2rem;
+  color: black;
+}
+
+h1 {
+  color: black;
+}
+
+img {
+  width: 100%;
+}
+
+.bottom {
+  padding-top: 30px;
+}
+
+.butn {
+  background: #cc4e4e;
+  border-radius: 7px;
+  color: #ffff;
+  font-size: 30px;
+  padding: 16px 25px 16px 25px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 150px;
+  font-family: "bestFont", sans-serif;
+}
+
+.choose-head {
+  text-align: center;
+}
+
+.butn:disabled {
+  background: #232931;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  font-family: "bestFont", sans-serif;
+  background-color: #ffffff;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.odd-number {
+  color: red;
+  -webkit-text-stroke: 2px black;
+}
+
+.game-alert {
+  font-size: 24px;
+  text-align: center;
+}
+
+.description-ability {
+  font-size: 14px;
+}
+
+.value-red {
+  color: red;
+}
+
+.choise-container {
+  position: absolute;
+  left: -60px;
+  top: -160px;
+  gap: 160px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.mechanic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attack {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-column-end: 1;
+  grid-row-end: 2;
+  cursor: pointer;
+}
+.defense {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  grid-column-end: 3;
+  grid-row-end: 2;
+  cursor: pointer;
+}
+.heal {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  grid-column-end: 2;
+  grid-row-end: 3;
+  cursor: pointer;
+}
+.mechanics-img {
+  width: 100px;
+}
+
+.mechanics {
+  text-align: center;
+}
+
+.plus-container {
+  animation: Up 2s ease infinite;
+  position: absolute;
+  top: 50px;
+  left: 28%;
+  z-index: 10;
+}
+
+.plus {
+  background-image: url(./source/plus-mini-1523-svgrepo-com.svg);
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  fill: red;
+}
+@keyframes Up {
+  0% {
+    top: 150px;
+  }
+  100% {
+    top: 50px;
+  }
+}
+
+.heal-invis {
+  display: none !important;
+}
+
+.heal-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 11;
+}
+.heal-btn {
+  font-size: 14px;
+  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.preload-img {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+canvas {
+  border-radius: 18px;
+}
+
+.pen {
+  position: absolute;
+  top: 10%;
+  right: 60%;
+  z-index: 100;
+}
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.line {
+  width: 40px;
+  border: 2px solid black;
+  transform: rotate(120deg);
+  position: relative;
+  top: 13px;
+  right: 16px;
+}
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  border-radius: 13px;
+  color: black;
+  margin: 0;
+  font-size: 86px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.paint-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.paint-wall {
+  top: 60px;
+  right: -30px;
+  width: 360px;
+  height: 360px;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: -5;
+  object-fit: fill;
+  user-select: none;
+}
+
+.average-text {
+  position: absolute;
+  top: 0px;
+}
+
+.style-container {
+  position: relative;
+  top: -20px;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  z-index: 10;
+}
+
+.reset {
+  border-radius: 8px;
+  border: black 1px solid;
+  width: 110px;
+  height: 45px;
+  font-size: 18px;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.reset-wall {
+  position: relative;
+  bottom: 2px;
+  left: 90px;
+  width: 120px;
+  height: 2px;
+  background-color: #ffffff;
+  z-index: 9;
+}
+
+.sparkles {
+  position: absolute;
+  top: 0;
+  background-image: url(./source/Z9pp.gif);
+  background-size: contain;
+  width: 70px;
+  height: 70px;
+  display: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 990px) {
+  .paint-wall {
+    top: 30px;
+    width: 300px;
+    height: 360px;
+  }
+  .timer {
+    font-size: 56px;
+  }
+  .choose-dice {
+    width: 50%;
+    height: 50%;
+  }
+  .dice-red {
+    width: 75px;
+  }
+  .choise-container {
+    gap: 70px;
+    row-gap: 35px;
+    left: 0;
+    max-width: 400px;
+    top: -80px;
+  }
+  .mechanics-img {
+    width: 100%;
+  }
+  .dice-container {
+    margin-top: 50px;
+    width: 50%;
+  }
+  .dice-result {
+    font-size: 72px;
+    bottom: 16px;
+  }
+  .dice-red {
+    width: 65px;
+    right: 97px;
+  }
+  .average-text {
+    top: -17px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  canvas {
+    margin: 22px 0 0 0;
+  }
+  .choose-dice {
+    width: 90%;
+  }
+  .choose-head {
+    font-size: 0.9em;
+  }
+  .dice-result {
+    font-size: 70px;
+  }
+  .heal {
+    width: 85%;
+  }
+  .choise-container {
+    top: -41px;
+  }
+  .mechanics-img {
+    width: 80%;
+  }
+  .choice-name {
+    font-size: 22px;
+  }
+
+  #D6 > .dice-result {
+    bottom: 15px;
+  }
+  #D30 > .dice-result {
+    bottom: 42px;
+    font-size: 48px;
+  }
+}

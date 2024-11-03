@@ -1,0 +1,24 @@
+.choice-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.choice-container:nth-child(2) {
+  margin-left: 20%;
+  margin-right: 5%;
+}
+
+.choice-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.choice-name {
+  margin: 5px 0;
+}
