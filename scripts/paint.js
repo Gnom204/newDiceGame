@@ -8,6 +8,8 @@ export default class Paint {
     this.lastTime = true;
     this.time;
     this.times = [500, 1000, 1500, 2000, 2500, 3000];
+    this.timeSeconds = 0;
+    this.timeMilliseconds = 0;
     this.lineWid;
     this.lineInterval;
     this.downInterval;
@@ -42,6 +44,9 @@ export default class Paint {
     this.timer = this.clone.querySelector(".timer");
     this.second = this.clone.querySelector(".second");
     this.milSecond = this.clone.querySelector(".milsecond");
+    this.IP = this.clone.querySelector(".IP");
+    this.BP = this.clone.querySelector(".BP");
+    this.resultAttack = this.clone.querySelector(".result-attack");
     // this.reset = this.clone.querySelector(".reset");
     // this.sparkles = this.clone.querySelector(".sparkles");
 
@@ -70,8 +75,13 @@ export default class Paint {
     });
     document.addEventListener("mousemove", (e) => {
       e.stopPropagation;
+      //Выход за пределы
       if (this.isDraw && !e.target.classList.contains("canvas")) {
         this._stopDrawing(e);
+        this.second.textContent = "00";
+        this.milSecond.textContent = "00";
+        this.averageText.textContent = "NON";
+        this.resultAttack.textContent = "NON";
       }
     });
     document.addEventListener("touchmove", (e) => {
@@ -84,7 +94,7 @@ export default class Paint {
   }
   renderPaint() {
     this.paint = this._createPaint();
-    this.timer.insertAdjacentElement("afterend", this.averageText);
+    this.timer.insertAdjacentElement("afterbegin", this.averageText);
     this.timer.insertAdjacentElement("afterend", this.canvas);
     this.place.appendChild(this.paint);
   }
@@ -105,34 +115,25 @@ export default class Paint {
           e.touches[0].pageY -
           this.canvas.parentNode.parentNode.offsetTop -
           105;
+        //Вышел за зону рисовки Срабатывает на телефоне
         if (this.x < 0 || this.x > 235 || this.y < 0 || this.y > 240) {
+          console.log("Вышел за зону рисовки");
           this._stopDrawing();
+          this.second.textContent = "00";
+          this.milSecond.textContent = "00";
+          this.averageText.textContent = "NON";
+          this.resultAttack.textContent = "NON";
         }
-        // this.sparkles.style.top = this.y + 32 + "px";
-        // this.sparkles.style.left = this.x - 37 + "px";
-        // this.sparkles.style.display = "block";
       } else {
         this.x = e.pageX - this.canvas.parentNode.parentNode.offsetLeft;
         this.y = e.pageY - this.canvas.parentNode.parentNode.offsetTop - 98;
-        // this.sparkles.style.top = this.y + 67 + "px";
-        // this.sparkles.style.left = this.x - 35 + "px";
-        // this.sparkles.style.display = "block";
       }
       this._setLineWidth(e);
       this.isDraw = true;
-      // let cords = this.canvas.getBoundingClientRect();
-      // console.log({
-      //   left: cords.x,
-      //   right: cords.x + cords.width,
-      //   top: cords.y,
-      //   bottom: cords.y + cords.height,
-      // });
-
       /**
        * Когда-нибудь я научусь документировать код, а пока импровизация
        * Настройка кисти
        */
-
       this.ctx.lineCap = "round";
       this.ctx.strokeStyle = "red";
       const ua = navigator.userAgent;
@@ -156,19 +157,15 @@ export default class Paint {
     }
   }
   _startDrawing(e) {
-    this._getInfo();
+    // this._getInfo();
     if (this.isMobile) {
       this.x =
         e.touches[0].clientX - this.canvas.parentNode.parentNode.offsetLeft;
       this.y =
         e.touches[0].clientY - this.canvas.parentNode.parentNode.offsetTop;
-      // this.sparkles.style.top = this.y - 40 + "px";
-      // this.sparkles.style.left = this.x - 60 + "px";
     } else {
       this.x = e.clientX - this.canvas.parentNode.parentNode.offsetLeft;
       this.y = e.clientY - this.canvas.parentNode.parentNode.offsetTop;
-      // this.sparkles.style.top = this.y + 67 + "px";
-      // this.sparkles.style.left = this.x - 35 + "px";
     }
     if (this.stop) {
       this._reset();
@@ -201,6 +198,7 @@ export default class Paint {
         clearInterval(this.lineInterval);
         this.second.textContent = "00";
         this.milSecond.textContent = "00";
+        this.resultAttack.textContent = "0.0";
         this.averageText.textContent = this._getAverageValue(this.averageLine);
         this.averageLine.length = 0;
         this.wall.src = "./source/red-wall.svg";
@@ -209,15 +207,18 @@ export default class Paint {
         // this.sparkles.style.display = "none";
       } else {
         let seconds = Math.floor(remainingTime / 1000);
-        let milliseconds = remainingTime % 1000;
-        this.second.textContent = seconds;
+        let milliseconds = remainingTime % 10;
+        this.timeSeconds = seconds;
+        this.timeMilliseconds = milliseconds;
+        this.second.textContent = `0${seconds}`;
         this.milSecond.textContent = milliseconds;
       }
     }, 1); // Проверяем каждую миллисекунду
   }
   _getRandomTime(items) {
-    this.time = 3500;
+    this.time = 3000;
   }
+  //Клик после рисовки, может сбросить
   _reset() {
     this._getRandomTime(this.times);
     let endTime = Date.now() + this.time;
@@ -231,6 +232,7 @@ export default class Paint {
     this.isDraw = false;
     this.drawing = false;
     this.averageText.textContent = 0;
+    this.resultAttack.textContent = "0.0";
 
     clearInterval(this.upperInterval, this.downInterval);
     clearInterval(this.timerInterval);
@@ -252,20 +254,28 @@ export default class Paint {
         this.lastTime = false;
         clearInterval(this.timerInterval);
         clearInterval(this.lineInterval);
-        this.second.textContent = "00";
-        this.milSecond.textContent = "00";
+        this.second.textContent = `0${this.timeSeconds}`;
+        this.milSecond.textContent = `${this.timeMilliseconds}`;
         this.drawing = false;
         this.stop = true;
+        this.isDraw = false;
         // this.sparkles.style.display = "none";
         this.ctx.shadowColor = "transparent";
         this.ctx.fillStyle = "transparent";
         this.wall.src = "./source/red-wall.svg";
-        this.averageText.textContent = this._getAverageValue(this.averageLine);
+        let average = this._getAverageValue(this.averageLine);
+        this.averageText.textContent = average;
         this.averageLine.length = 0;
+        let intTime = `${this.timeSeconds}.${this.timeMilliseconds}`;
+        let result = average / intTime;
+        console.log(result, this.timeSeconds, this.timeMilliseconds, average);
+        this.resultAttack.textContent = `${result.toFixed(1)}`;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        console.log(this.timeSeconds, this.timeMilliseconds);
       }
       this.ctx.beginPath();
-      this._getInfo();
+      // this._getInfo();
     }
   }
   _setLineWidth(e) {
@@ -312,44 +322,25 @@ export default class Paint {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  // _getAverageValue(arr) {
-  //   let sum = 0;
-  //   let countOfElements = arr.length;
-  //   for (let i = 0; i < countOfElements; i++) {
-  //     sum += arr[i];
-  //   }
-  //   return Math.floor((sum / countOfElements).toFixed(2)*100/3);
-  // }
-//  _getAverageValue(arr) {
-//     let sum = 0;
-//     let countOfElements = arr.length;
-//     for (let i = 0; i < countOfElements; i++) {
-//     sum += arr[i];
-//     }
-//     let average = sum / countOfElements;
-//     let normalizedValue = (average * 10) ;
-//     return Math.min(Math.max(normalizedValue, 10), 100).toFixed(2);
-//     }
- _getAverageValue(arr) {
-  let sum = 0; // Initialize a variable to store the sum of array elements
-  let countOfElements = arr.length; // Get the total number of elements in the array
-  
-  // Loop through each element in the array
-  for (let i = 0; i < countOfElements; i++) {
+  _getAverageValue(arr) {
+    let sum = 0; // Initialize a variable to store the sum of array elements
+    let countOfElements = arr.length; // Get the total number of elements in the array
+
+    // Loop through each element in the array
+    for (let i = 0; i < countOfElements; i++) {
       sum += arr[i]; // Add the current element to the sum
+    }
+
+    let average = sum / countOfElements; // Calculate the average value
+    let normalizedValue = average * 10 * 3.6 - 28; // Multiply the average by 10
+
+    //  Limit the normalized value to be between 10 and 100
+    let result = Math.min(Math.max(normalizedValue, 10), 100);
+    let newResult = Math.round(result / 5) * 5 + result / 100;
+
+    // Return the result rounded to 2 decimal places
+    return newResult.toFixed(1);
   }
-
-  let average = sum / countOfElements; // Calculate the average value
-  let normalizedValue = (average * 10*3.6)-28; // Multiply the average by 10
-
-  //  Limit the normalized value to be between 10 and 100 
-  let result = Math.min(Math.max(normalizedValue, 10), 100);
-  let newResult = Math.round(result/5)*5 +result/100;
-
-  // Return the result rounded to 2 decimal places
-  return newResult.toFixed(1); 
-}
-
 
   doNotStop() {
     console.log("сработала");

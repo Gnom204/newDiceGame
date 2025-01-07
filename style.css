@@ -218,18 +218,28 @@ canvas {
 .timer {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 10px 0;
+  justify-content: space-around;
+  width: 300px;
   border-radius: 13px;
   color: black;
-  margin: 0;
-  font-size: 86px;
+  font-size: 42px;
+  margin: 0 0 0 20px;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
+}
+
+.result-attack{
+  font-size: 64px;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .paint-container {
@@ -247,11 +257,6 @@ canvas {
   z-index: -5;
   object-fit: fill;
   user-select: none;
-}
-
-.average-text {
-  position: absolute;
-  top: 0px;
 }
 
 .style-container {
@@ -295,6 +300,31 @@ canvas {
   display: none;
   user-select: none;
   pointer-events: none;
+}
+
+.IP{
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  user-select: none;
+  pointer-events: none;
+  font-size: 18px;
+}
+.BP{
+  position: absolute;
+  top: -10px;
+  left: 70px;
+  user-select: none;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.IP-container{
+  width:40px
+}
+
+.BP-container{
+  width:20px
 }
 
 @media screen and (max-width: 990px) {
@@ -364,6 +394,25 @@ canvas {
   }
   .choice-name {
     font-size: 22px;
+  }
+  .timer{
+    font-size: 46px;
+    margin: 0;
+    width: 240px;
+    height: 70px;
+  }
+
+.average-text {
+    top: 0;
+    left: 60px;
+  }
+  .IP{
+    top: 10px;
+    left: -10px;
+  }
+  .BP{
+    top: 5px;
+    left: 35px;
   }
 
   #D6 > .dice-result {
