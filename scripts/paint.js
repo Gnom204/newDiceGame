@@ -204,6 +204,7 @@ export default class Paint {
         this.wall.src = "./source/red-wall.svg";
         this.stop = true;
         this.drawing = false;
+        this.isDraw = false;
         // this.sparkles.style.display = "none";
       } else {
         let seconds = Math.floor(remainingTime / 1000);
