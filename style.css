@@ -305,15 +305,15 @@ canvas {
 .IP{
   position: absolute;
   top: 15px;
-  left: -15px;
+  left: 15px;
   user-select: none;
   pointer-events: none;
   font-size: 18px;
 }
 .BP{
   position: absolute;
-  top: -10px;
-  left: 70px;
+  top: 5px;
+  left: 90px;
   user-select: none;
   pointer-events: none;
   font-size: 18px;
