@@ -35,7 +35,7 @@ export default class Paint {
     this.averageText.textContent = 0;
 
     this.canvas.width = !this.isMobile ? 300 : 240;
-    this.canvas.height = !this.isMobile ? 280 : 250;
+    this.canvas.height = !this.isMobile ? 280 : 220;
     this.canvas.classList.add("canvas");
     this.container = this.clone.querySelector(".paint-container");
     this.wall = this.clone.querySelector(".paint-wall");

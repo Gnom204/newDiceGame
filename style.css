@@ -223,7 +223,7 @@ canvas {
   border-radius: 13px;
   color: black;
   font-size: 42px;
-  margin: 0 0 0 20px;
+  margin: 0;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -328,13 +328,22 @@ canvas {
 }
 
 @media screen and (max-width: 990px) {
+  canvas{
+    width: 240px;
+    height: 230px;
+    margin: 20px 0 0 30px;
+  }
   .paint-wall {
-    top: 30px;
     width: 300px;
     height: 360px;
+    right: 0;
   }
   .timer {
-    font-size: 56px;
+    font-size: 36px;
+    width: 300px;
+  }
+  .result-attack {
+    font-size: 48px;
   }
   .choose-dice {
     width: 50%;
@@ -370,9 +379,15 @@ canvas {
   }
 }
 
+
+
 @media screen and (max-width: 600px) {
+  .paint-wall {
+    right: -20px;
+    top: 40px;
+  }
   canvas {
-    margin: 22px 0 0 0;
+    margin: 30px 0 0 5px;
   }
   .choose-dice {
     width: 90%;
@@ -398,7 +413,7 @@ canvas {
   .timer{
     font-size: 46px;
     margin: 0;
-    width: 240px;
+    width: 255px;
     height: 70px;
   }
 
