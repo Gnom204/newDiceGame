@@ -268,8 +268,14 @@ export default class Paint {
         this.averageText.textContent = average;
         this.averageLine.length = 0;
         let intTime = `${this.timeSeconds}.${this.timeMilliseconds}`;
-        let result = average / intTime;
-        console.log(result, this.timeSeconds, this.timeMilliseconds, average);
+        let result = average / (3 - intTime);
+        console.log(
+          intTime,
+          result,
+          this.timeSeconds,
+          this.timeMilliseconds,
+          average
+        );
         this.resultAttack.textContent = `${result.toFixed(1)}`;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
