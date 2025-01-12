@@ -205,16 +205,22 @@ export default class Paint {
         this.stop = true;
         this.drawing = false;
         this.isDraw = false;
-        // this.sparkles.style.display = "none";
+        this.lastSecond = 0;
+        this.lastMillisecond = 0;
       } else {
+        this.lastSecond = Math.floor(3000 - remainingTime) / 1000;
+        this.lastMillisecond = Math.floor(
+          ((3000 - remainingTime) % 1000) / 100
+        );
         let seconds = Math.floor(remainingTime / 1000);
         let milliseconds = remainingTime % 10;
         this.timeSeconds = seconds;
         this.timeMilliseconds = milliseconds;
+
         this.second.textContent = `0${seconds}`;
         this.milSecond.textContent = milliseconds;
       }
-    }, 1); // Проверяем каждую миллисекунду
+    }, 1);
   }
   _getRandomTime(items) {
     this.time = 3000;
@@ -255,8 +261,14 @@ export default class Paint {
         this.lastTime = false;
         clearInterval(this.timerInterval);
         clearInterval(this.lineInterval);
-        this.second.textContent = `0${this.timeSeconds}`;
-        this.milSecond.textContent = `${this.timeMilliseconds}`;
+        this.second.textContent = `0${Math.floor(this.lastSecond)}`;
+        this.milSecond.textContent = `${this.lastMillisecond}`;
+        console.log({
+          sec: this.timeSeconds,
+          milSec: this.timeMilliseconds,
+          RATmilSec: this.timeMilliseconds,
+          RATSec: this.timeSeconds,
+        });
         this.drawing = false;
         this.stop = true;
         this.isDraw = false;
@@ -267,15 +279,9 @@ export default class Paint {
         let average = this._getAverageValue(this.averageLine);
         this.averageText.textContent = average;
         this.averageLine.length = 0;
-        let intTime = `${this.timeSeconds}.${this.timeMilliseconds}`;
-        let result = average / (3 - intTime);
-        console.log(
-          intTime,
-          result,
-          this.timeSeconds,
-          this.timeMilliseconds,
-          average
-        );
+        let intTime = `${Math.floor(this.lastSecond)}.${this.lastMillisecond}`;
+        let result = average / intTime;
+
         this.resultAttack.textContent = `${result.toFixed(1)}`;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
