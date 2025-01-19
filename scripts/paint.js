@@ -281,8 +281,13 @@ export default class Paint {
         this.averageLine.length = 0;
         let intTime = `${Math.floor(this.lastSecond)}.${this.lastMillisecond}`;
         let result = average / intTime;
-
-        this.resultAttack.textContent = `${result.toFixed(1)}`;
+        console.log(result, average, intTime);
+        if (result == 0) {
+          console.log("NON");
+          this.resultAttack.textContent = "NON";
+        } else {
+          this.resultAttack.textContent = `${result.toFixed(1)}`;
+        }
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         console.log(this.timeSeconds, this.timeMilliseconds);
@@ -352,7 +357,7 @@ export default class Paint {
     let newResult = Math.round(result / 5) * 5 + result / 100;
 
     // Return the result rounded to 2 decimal places
-    return newResult.toFixed(1);
+    return newResult.toFixed(0);
   }
 
   doNotStop() {
