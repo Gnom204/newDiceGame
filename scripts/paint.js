@@ -357,7 +357,7 @@ export default class Paint {
     let newResult = Math.round(result / 5) * 5 + result / 100;
 
     // Return the result rounded to 2 decimal places
-    return newResult.toFixed(0);
+    return (newResult / 10).toFixed(0);
   }
 
   doNotStop() {

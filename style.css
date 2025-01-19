@@ -10,10 +10,9 @@
   src: url(./source/ofont.ru_Hlobus.ttf);
 }
 body {
-  background-image: url(./source/maze_0.1.webp);
-  background-size: contain;
-  /* background-repeat: no-repeat;
-  background-size: cover; */
+  background-image: url(./source/backgroundmob.webp);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .container {
   width: 70%;
@@ -193,6 +192,7 @@ img {
 
 canvas {
   border-radius: 18px;
+  
 }
 
 .pen {
