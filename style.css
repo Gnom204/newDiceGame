@@ -7,11 +7,11 @@
 @font-face {
   font-family: "bestFont";
 
-  src: url('./source/maze_0.1.webp');
+  src: url(./source/ofont.ru_Hlobus.ttf);
 }
 body {
-  background-image: url(./source/maze_0.webp);
-  background-size:contain;
+  background-image: url(./source/maze_0.1.webp);
+  background-size: contain;
   /* background-repeat: no-repeat;
   background-size: cover; */
 }
