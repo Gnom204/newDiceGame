@@ -181,7 +181,7 @@ export default class Paint {
           this.lastTime = false;
         }, this.time);
       }
-      this.wall.src = "./source/wall.svg";
+      this.wall.src = "./source/рамка фиолетовая.svg";
       this.isDraw = true;
       this.drawing = true;
     }
@@ -201,7 +201,7 @@ export default class Paint {
         this.resultAttack.textContent = "0.0";
         this.averageText.textContent = this._getAverageValue(this.averageLine);
         this.averageLine.length = 0;
-        this.wall.src = "./source/red-wall.svg";
+        this.wall.src = "./source/рамка красная.svg";
         this.stop = true;
         this.drawing = false;
         this.isDraw = false;
@@ -232,7 +232,7 @@ export default class Paint {
     let remainingTime = endTime - Date.now();
     let futseconds = Math.floor(remainingTime / 1000);
     let futmilliseconds = remainingTime % 1000;
-    this.wall.src = "./source/wall.svg";
+    this.wall.src = "./source/рамка фиолетовая.svg";
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.lastTime = true;
@@ -275,7 +275,7 @@ export default class Paint {
         // this.sparkles.style.display = "none";
         this.ctx.shadowColor = "transparent";
         this.ctx.fillStyle = "transparent";
-        this.wall.src = "./source/red-wall.svg";
+        this.wall.src = "./source/рамка красная.svg";
         let average = this._getAverageValue(this.averageLine);
         this.averageText.textContent = average;
         this.averageLine.length = 0;

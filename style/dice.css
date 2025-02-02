@@ -23,7 +23,7 @@
   position: relative;
   object-fit: contain;
   cursor: pointer;
-  width: 100%;
+  width: 180px;
   user-select: none;
 }
 

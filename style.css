@@ -10,9 +10,9 @@
   src: url(./source/ofont.ru_Hlobus.ttf);
 }
 body {
-  background-image: url(./source/backgroundmob.webp);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url(./source/maze_2\ 1980x1080\ \(png\).png);
+  background-position: 0 80px ;
+  background-size: cover;
 }
 .container {
   width: 70%;
@@ -192,7 +192,8 @@ img {
 
 canvas {
   border-radius: 18px;
-  
+  width: 245px;
+  margin: 25px 0 0 30px;
 }
 
 .pen {
@@ -332,10 +333,10 @@ canvas {
   canvas{
     width: 240px;
     height: 230px;
-    margin: 20px 0 0 30px;
+    margin: 20px 0 0 0;
   }
   .paint-wall {
-    width: 300px;
+    width: 360px;
     height: 360px;
     right: 0;
   }
@@ -384,11 +385,14 @@ canvas {
 
 @media screen and (max-width: 600px) {
   .paint-wall {
+    width: 300px;
     right: -20px;
     top: 40px;
   }
   canvas {
-    margin: 30px 0 0 5px;
+    width: 190px;
+    height: 190px;
+    margin: 60px 0 0 30px;
   }
   .choose-dice {
     width: 90%;
@@ -432,10 +436,9 @@ canvas {
   }
 
   #D6 > .dice-result {
-    bottom: 15px;
+    bottom: 36px;
   }
   #D30 > .dice-result {
-    bottom: 42px;
     font-size: 48px;
   }
 }
