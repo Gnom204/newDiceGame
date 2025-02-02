@@ -9,11 +9,7 @@
 
   src: url(./source/ofont.ru_Hlobus.ttf);
 }
-body {
-  background-image: url(./source/maze_2\ 1980x1080\ \(png\).png);
-  background-position: 0 80px ;
-  background-size: cover;
-}
+
 .container {
   width: 70%;
   margin: auto;
@@ -65,6 +61,11 @@ img {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  background-image: url(./source/maze_2\ 1980x1080\ \(png\).png);
+  background-position: 50% 110px ;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 @keyframes rotation {
