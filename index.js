@@ -53,6 +53,20 @@ let diceD5Arr = [
   "100",
 ];
 
+let isMobile;
+
+let width = window.innerWidth;
+if (width < 900) {
+  isMobile = true;
+} else {
+  isMobile = false;
+}
+
+if (!isMobile) {
+  document.body.style.fontSize = "68px";
+  document.body.innerHTML = "откройте с мобильного устройства";
+}
+
 const fillArr = (num) => {
   let arr = [];
   let x = 1;
