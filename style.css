@@ -445,5 +445,6 @@ canvas {
   }
   #D30 > .dice-result {
     font-size: 48px;
+    bottom: 100px;
   }
 }
