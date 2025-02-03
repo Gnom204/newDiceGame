@@ -375,7 +375,7 @@ canvas {
   }
   .dice-red {
     width: 65px;
-    left: 60px;
+    left: 90px;
     right: 0;
   }
   .average-text {
@@ -387,14 +387,17 @@ canvas {
 
 @media screen and (max-width: 600px) {
   .paint-wall {
-    width: 300px;
-    right: -20px;
+    width: 360px;
+    right: -50px;
     top: 40px;
+    z-index: 10;
+    pointer-events: none;
   }
   canvas {
-    width: 190px;
-    height: 190px;
-    margin: 60px 0 0 30px;
+    width: 240px;
+    height: 230px;
+    margin: 40px 0 0 0px;
+    background-color: #ffffff;
   }
   .choose-dice {
     width: 90%;
@@ -438,7 +441,7 @@ canvas {
   }
 
   #D6 > .dice-result {
-    bottom: 36px;
+    bottom: 70px;
   }
   #D30 > .dice-result {
     font-size: 48px;

@@ -23,7 +23,7 @@
   position: relative;
   object-fit: contain;
   cursor: pointer;
-  width: 180px;
+  width: 250px;
   user-select: none;
 }
 
@@ -81,6 +81,6 @@
   .dice-green {
     width: 65px;
     height: 65px;
-    bottom: 60px !important;
+    bottom: 90px !important;
   }
 }
