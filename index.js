@@ -65,6 +65,11 @@ if (width < 900) {
 if (!isMobile) {
   document.body.style.fontSize = "68px";
   document.body.innerHTML = "откройте с мобильного устройства";
+  let logo = document.createElement("img");
+  logo.src = "./source/03.svg";
+  logo.classList.add("logo");
+  root.appendChild(logo);
+  document.body.appendChild(logo);
 }
 
 const fillArr = (num) => {

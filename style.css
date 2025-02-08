@@ -63,8 +63,8 @@ img {
   justify-content: center;
   min-height: 100vh;
   background-image: url(./source/maze_2\ 1980x1080\ \(png\).png);
-  background-position: 50% 110px ;
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -313,6 +313,13 @@ canvas {
   pointer-events: none;
   font-size: 18px;
 }
+.logo{
+ user-select: none;
+  pointer-events: none;
+  font-size: 18px;
+  width: 300px;
+  height: 300px;
+}
 .BP{
   position: absolute;
   top: 5px;
@@ -352,9 +359,6 @@ canvas {
     width: 50%;
     height: 50%;
   }
-  .dice-red {
-    width: 75px;
-  }
   .choise-container {
     gap: 70px;
     row-gap: 35px;
@@ -374,8 +378,8 @@ canvas {
     bottom: 16px;
   }
   .dice-red {
-    width: 65px;
-    left: 90px;
+    width: 85px;
+    left: 80px;
     right: 0;
   }
   .average-text {
@@ -406,7 +410,7 @@ canvas {
     font-size: 0.9em;
   }
   .dice-result {
-    font-size: 70px;
+    font-size: 90px;
   }
   .heal {
     width: 85%;
@@ -444,7 +448,7 @@ canvas {
     bottom: 70px;
   }
   #D30 > .dice-result {
-    font-size: 48px;
+    font-size: 68px;
     bottom: 100px;
   }
 }
