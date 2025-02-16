@@ -6,7 +6,6 @@
 }
 @font-face {
   font-family: "bestFont";
-
   src: url(./source/ofont.ru_Hlobus.ttf);
 }
 
@@ -31,6 +30,10 @@ img {
 
 .bottom {
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
 }
 
 .butn {
@@ -38,7 +41,7 @@ img {
   border-radius: 7px;
   color: #ffff;
   font-size: 30px;
-  padding: 16px 25px 16px 25px;
+  padding: 16px 25px;
   text-decoration: none;
   cursor: pointer;
   margin-top: 150px;
@@ -54,8 +57,8 @@ img {
 }
 
 .root {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   font-family: "bestFont", sans-serif;
   background-color: #ffffff;
   margin: 0 auto;
@@ -85,6 +88,9 @@ img {
 .game-alert {
   font-size: 24px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .description-ability {
@@ -251,8 +257,7 @@ canvas {
 }
 
 .paint-wall {
-  top: 60px;
-  right: -30px;
+  right: -10px;
   width: 360px;
   height: 360px;
   position: absolute;
@@ -314,7 +319,7 @@ canvas {
   font-size: 18px;
 }
 .logo{
- user-select: none;
+  user-select: none;
   pointer-events: none;
   font-size: 18px;
   width: 300px;
@@ -387,8 +392,6 @@ canvas {
   }
 }
 
-
-
 @media screen and (max-width: 600px) {
   .paint-wall {
     width: 360px;
@@ -431,7 +434,7 @@ canvas {
     height: 70px;
   }
 
-.average-text {
+  .average-text {
     top: 0;
     left: 60px;
   }
@@ -452,3 +455,5 @@ canvas {
     bottom: 100px;
   }
 }
+
+
