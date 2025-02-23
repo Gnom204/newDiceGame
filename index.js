@@ -66,7 +66,7 @@ if (!isMobile) {
   document.body.style.fontSize = "68px";
   document.body.innerHTML = "откройте с мобильного устройства";
   let logo = document.createElement("img");
-  logo.src = "./source/03.svg";
+  logo.src = "./source/openWithMob.svg";
   logo.classList.add("logo");
   root.appendChild(logo);
   document.body.appendChild(logo);
