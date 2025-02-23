@@ -395,7 +395,7 @@ canvas {
 @media screen and (max-width: 600px) {
   .paint-wall {
     width: 360px;
-    right: -50px;
+    right: -56px;
     top: 40px;
     z-index: 10;
     pointer-events: none;
@@ -403,7 +403,7 @@ canvas {
   canvas {
     width: 240px;
     height: 230px;
-    margin: 40px 0 0 0px;
+    margin: 35px 0 0 0px;
   }
   .choose-dice {
     width: 90%;

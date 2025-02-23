@@ -116,7 +116,7 @@ export default class Paint {
           this.canvas.parentNode.parentNode.offsetTop -
           105;
         //Вышел за зону рисовки Срабатывает на телефоне
-        if (this.x < 0 || this.x > 235 || this.y < 0 || this.y > 240) {
+        if (this.x < 0 || this.x > 235 || this.y < 0 || this.y > 220) {
           console.log("Вышел за зону рисовки");
           this._stopDrawing();
           this.second.textContent = "00";
