@@ -70,6 +70,10 @@ if (!isMobile) {
   logo.classList.add("logo");
   root.appendChild(logo);
   document.body.appendChild(logo);
+  document.body.style.textAlign = "center";
+  document.body.style.display = "flex";
+  document.body.style.justifyContent = "center";
+  document.body.style.flexDirection = "column";
 }
 
 const fillArr = (num) => {
