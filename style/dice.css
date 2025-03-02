@@ -25,6 +25,7 @@
   cursor: pointer;
   width: 250px;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .dice-result {

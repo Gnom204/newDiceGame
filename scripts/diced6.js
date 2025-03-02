@@ -67,20 +67,22 @@ export class DiceD6 extends Dice {
     }
   }
   _getRandomNum() {
-    let random = Math.random().toFixed(2);
+    let random = Math.random(); // Генерация случайного числа от 0 до 1
     console.log(random);
-    if (random <= 0.096) {
-      return "5";
-    } else if (random <= 0.2) {
-      return "6";
-    } else if (random <= 0.4) {
+
+    if (random <= 0.17) {
       return "1";
-    } else if (random <= 0.6) {
+    } else if (random <= 0.34) {
       return "2";
-    } else if (random <= 0.8) {
+    } else if (random <= 0.51) {
       return "3";
-    } else if (random <= 1) {
+    } else if (random <= 0.68) {
       return "4";
+    } else if (random <= 0.84) {
+      // 68% + 16% = 84%
+      return "5";
+    } else {
+      return "6";
     }
   }
   _playSoundD6() {
