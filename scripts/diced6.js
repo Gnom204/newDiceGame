@@ -70,16 +70,16 @@ export class DiceD6 extends Dice {
     let random = Math.random(); // Генерация случайного числа от 0 до 1
     console.log(random);
 
-    if (random <= 0.17) {
+    if (random <= 0.19) {
       return "1";
-    } else if (random <= 0.34) {
+    } else if (random <= 0.38) {
       return "2";
-    } else if (random <= 0.51) {
+    } else if (random <= 0.57) {
       return "3";
-    } else if (random <= 0.68) {
+    } else if (random <= 0.76) {
       return "4";
-    } else if (random <= 0.84) {
-      // 68% + 16% = 84%
+    } else if (random <= 0.86) {
+      // 76% + 10% = 86%
       return "5";
     } else {
       return "6";

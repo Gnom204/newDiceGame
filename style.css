@@ -384,15 +384,15 @@ canvas {
   }
   .dice-red {
     width: 85px;
-    left: 80px;
+    left: 86px;
     right: 0;
   }
   .average-text {
     top: -17px;
   }
   .fail-reset-wall {
-    width: 326px !important;
-    right: -33px !important;
+    /* width: 326px !important;
+    right: -33px !important; */
   }
 }
 
