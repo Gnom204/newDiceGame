@@ -201,7 +201,7 @@ export default class Paint {
         this.resultAttack.textContent = "0.0";
         this.averageText.textContent = this._getAverageValue(this.averageLine);
         this.averageLine.length = 0;
-        this.wall.src = "./source/рамка красная.svg";
+        this.wall.src = "./source/фиолетовая.svg";
         this.stop = true;
         this.drawing = false;
         this.isDraw = false;
@@ -275,7 +275,7 @@ export default class Paint {
         // this.sparkles.style.display = "none";
         this.ctx.shadowColor = "transparent";
         this.ctx.fillStyle = "transparent";
-        this.wall.src = "./source/рамка красная.svg";
+        this.wall.src = "./source/фиолетовая.svg";
         let average = this._getAverageValue(this.averageLine);
         this.averageText.textContent = average;
         this.averageLine.length = 0;
