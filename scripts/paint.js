@@ -182,6 +182,8 @@ export default class Paint {
         }, this.time);
       }
       this.wall.src = "./source/рамка фиолетовая.svg";
+
+      this.wall.classList.remove("fail-reset-wall");
       this.isDraw = true;
       this.drawing = true;
     }
@@ -202,6 +204,7 @@ export default class Paint {
         this.averageText.textContent = this._getAverageValue(this.averageLine);
         this.averageLine.length = 0;
         this.wall.src = "./source/фиолетовая.svg";
+        this.wall.classList.add("fail-reset-wall");
         this.stop = true;
         this.drawing = false;
         this.isDraw = false;
@@ -234,6 +237,7 @@ export default class Paint {
     let futmilliseconds = remainingTime % 1000;
     this.wall.src = "./source/рамка фиолетовая.svg";
 
+    this.wall.classList.remove("fail-reset-wall");
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.lastTime = true;
     this.isDraw = false;
@@ -276,6 +280,7 @@ export default class Paint {
         this.ctx.shadowColor = "transparent";
         this.ctx.fillStyle = "transparent";
         this.wall.src = "./source/фиолетовая.svg";
+        this.wall.classList.add("fail-reset-wall");
         let average = this._getAverageValue(this.averageLine);
         this.averageText.textContent = average;
         this.averageLine.length = 0;

@@ -390,6 +390,10 @@ canvas {
   .average-text {
     top: -17px;
   }
+  .fail-reset-wall {
+    width: 326px !important;
+    right: -33px !important;
+  }
 }
 
 @media screen and (max-width: 600px) {
